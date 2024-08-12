@@ -15,7 +15,11 @@ function AdminDashboard() {
 
     const handleAddFlashcard = () => {
         axios.post('http://localhost:5000/api/flashcards', newFlashcard)
-            .then(response => setFlashcards([...flashcards, response.data]))
+            .then(response => {
+                setFlashcards([...flashcards, response.data]);
+                // Reset newFlashcard state to clear input fields
+                setNewFlashcard({ question: '', answer: '' });
+            })
             .catch(error => console.error(error));
     };
 

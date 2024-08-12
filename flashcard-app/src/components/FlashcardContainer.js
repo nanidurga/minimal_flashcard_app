@@ -1,4 +1,3 @@
-// FlashcardContainer.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Flashcard from './Flashcard';
@@ -30,7 +29,10 @@ function FlashcardContainer() {
     };
 
     const handleFlip = () => {
-        setIsFlipped(!isFlipped);
+        setIsFlipped(true);
+        setTimeout(() => {
+            setIsFlipped(false);
+        }, 500); // Hide the answer after 1 seconds
     };
 
     const goToAdmin = () => {
